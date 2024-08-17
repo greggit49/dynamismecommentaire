@@ -13,14 +13,19 @@ form.addEventListener("submit",(event)=>{
 
 
     // recuperer les info
-    let firstName = document.querySelector("#first-name").value;
-    let lastName = document.querySelector("#last-name").value; 
+    let firstName = document.querySelector("#first-name").value.trim();
+    let lastName = document.querySelector("#last-name").value.trim(); 
+    let message = document.querySelector("#message").value.trim(); 
+    
+    
 
-
-    // verifier si le prenom ou le nom ou le message est vide 
-    if(firstName == "" || lastName == "" ){
-
-        console.log('error');
+    // verifier si le prenom ou le nom ou commentaire  ou  le message est vide 
+    if(firstName == "" || lastName == "" || message == "" ){
+    
+      
+       
+       
+       
     
         // afficher le message d'erreur 
         let errorMessage = document.querySelector("#error-message");
@@ -30,7 +35,7 @@ form.addEventListener("submit",(event)=>{
         //cree une div
         let commentaire = document.createElement('div');
         commentaire.classList.add('flex', 'space-x-4', 'text-sm', 'text-gray-500')
-        document.querySelector('#comment-list').appendChild(commentaire)
+        document.querySelector('#comment-list').appendChild(commentaire);
 
         let commentaireContent = document.createElement('div');
         commentaireContent.classList.add('flex-1', 'py-10', 'border-t', 'border-gray-200')
@@ -51,9 +56,7 @@ form.addEventListener("submit",(event)=>{
 
 
         // vider
-        document.querySelector('#first-name').value = ''
-        document.querySelector('#last-name').value = ''
-        document.querySelector('#message').value = ''
+        form.reset();
 
 
     }
